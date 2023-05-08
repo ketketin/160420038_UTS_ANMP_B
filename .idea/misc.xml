@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.184" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_bookmark_border_24.xml" value="0.184" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_shopping_basket_24.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.184" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.184" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/comment_list_item.xml" value="0.22" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/favorite_item.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_check_out_kost.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_favorite.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_detail.xml" value="0.12" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_facilities.xml" value="0.2875" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_list.xml" value="0.12" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_photos.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_my_kost.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_register.xml" value="0.22" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_settings.xml" value="0.22" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/kost_list_item.xml" value="0.22" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/menu/menu_bottom.xml" value="0.17552083333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

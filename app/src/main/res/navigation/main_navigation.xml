@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/kostListFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.KostListFragment"
+        android:label="fragment_kost_list"
+        tools:layout="@layout/fragment_kost_list" >
+        <action
+            android:id="@+id/actionKostDetail"
+            app:destination="@id/kostDetailFragment" />
+        <action
+            android:id="@+id/actionLoginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/kostDetailFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.KostDetailFragment"
+        android:label="fragment_kost_detail"
+        tools:layout="@layout/fragment_kost_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/actionCheckoutFragment"
+            app:destination="@id/checkOutKostFragment" />
+        <action
+            android:id="@+id/actionListFragment"
+            app:destination="@id/kostListFragment" />
+        <action
+            android:id="@+id/actionFacilitiesFragment"
+            app:destination="@id/kostFacilitiesFragment" />
+        <action
+            android:id="@+id/actionPhotosFragment"
+            app:destination="@id/kostPhotosFragment" />
+        <action
+            android:id="@+id/actionKostListFragment"
+            app:destination="@id/kostListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkOutKostFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.CheckOutKostFragment"
+        android:label="fragment_check_out_kost"
+        tools:layout="@layout/fragment_check_out_kost" >
+        <action
+            android:id="@+id/actionMyKostFragment"
+            app:destination="@id/myKostFragment" />
+        <action
+            android:id="@+id/actionKostDetailFragment"
+            app:destination="@id/kostDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_kostListFragment"
+            app:destination="@id/kostListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_settingsFragment_to_kostListFragment"
+            app:destination="@id/kostListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kostFacilitiesFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.KostFacilitiesFragment"
+        android:label="fragment_kost_facilities"
+        tools:layout="@layout/fragment_kost_facilities" >
+        <action
+            android:id="@+id/actionKostDetailFragment"
+            app:destination="@id/kostDetailFragment" />
+        <action
+            android:id="@+id/actionDetailFragment"
+            app:destination="@id/kostDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kostPhotosFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.KostPhotosFragment"
+        android:label="fragment_kost_photos"
+        tools:layout="@layout/fragment_kost_photos" >
+        <action
+            android:id="@+id/actionKostDetailFragment"
+            app:destination="@id/kostDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myKostFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.MyKostFragment"
+        android:label="fragment_my_kost"
+        tools:layout="@layout/fragment_my_kost" >
+        <action
+            android:id="@+id/action_myKostFragment_to_kostListFragment"
+            app:destination="@id/kostListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/actionKostList"
+            app:destination="@id/kostListFragment" />
+        <action
+            android:id="@+id/actionFavoriteFragment"
+            app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/actionMyKostFragment"
+            app:destination="@id/myKostFragment" />
+        <action
+            android:id="@+id/actionSettingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+</navigation>
