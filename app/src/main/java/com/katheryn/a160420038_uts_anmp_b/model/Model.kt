@@ -8,14 +8,6 @@ data class Kost(
     val name:String?,
     @SerializedName("kost_description")
     val description:String?,
-    @SerializedName("is_liked")
-    var isLiked: Int,
-    @SerializedName("kost_kamar")
-    val tipe_kamar:String?,
-    @SerializedName("kost_kasur")
-    val tempat_tidur:String?,
-    val pendingin:String?,
-    val furniture:String?,
     @SerializedName("kost_address")
     val address:String?,
     @SerializedName("kost_rate")
@@ -27,6 +19,15 @@ data class Kost(
     val photo1:String?,
     val photo2:String?,
     val photo3:String?
+)
+
+data class Fasilitas(
+    @SerializedName("kost_id")
+    val KostID: String?,
+    val tipe_kamar: String?,
+    val tempat_tidur: String?,
+    val pendingin: String?,
+    val furniture: String?
 )
 
 data class Checkout(

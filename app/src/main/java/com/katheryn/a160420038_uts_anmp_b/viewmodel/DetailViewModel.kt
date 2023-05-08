@@ -27,27 +27,27 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
-            {
-
+            { response->
                 val sType = object : TypeToken<ArrayList<Kost>>() { }.type
-                val result = Gson().fromJson<ArrayList<Kost>>(it, sType)
-                for(kostList in result){
-                    if(kostList.id == id){
-                        kostLD.value = kostList
+                val result = Gson().fromJson<ArrayList<Kost>>(response, sType)
+                for(item in result){
+                    if(item.id == id){
+                        kostLD.value = item
                     }
                 }
-                loadingLD.value = false
-
-                Log.d("showvoley", it)
+                Log.d("showvoley", response)
             },
             {
                 Log.d("showvoley", it.toString())
-                kostLoadErrorLD.value = false
-                loadingLD.value = false
             }).apply {
 //            stringRequest.tag = TAG
                 tag = "TAG"
         }
         queue?.add(stringRequest)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        queue?.cancelAll(TAG)
     }
 }

@@ -1,9 +1,7 @@
 package com.katheryn.a160420038_uts_anmp_b.view.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -50,20 +48,20 @@ class KostDetailFragment : Fragment() {
         }
 //        })
 
-        btnPhotos.setOnClickListener {
-            val actionPhotos = KostDetailFragmentDirections.actionPhotosFragment()
-            Navigation.findNavController(view).navigate(actionPhotos)
-        }
-
-        btnFasilitas.setOnClickListener {
-            val actionFasilitas = KostDetailFragmentDirections.actionFacilitiesFragment()
-            Navigation.findNavController(view).navigate(actionFasilitas)
-        }
-
-        btnCheckout.setOnClickListener {
-            val actionCheckout = KostDetailFragmentDirections.actionCheckoutFragment()
-            Navigation.findNavController(view).navigate(actionCheckout)
-        }
+//        btnPhotos.setOnClickListener {
+//            val actionPhotos = KostDetailFragmentDirections.actionPhotosFragment()
+//            Navigation.findNavController(view).navigate(actionPhotos)
+//        }
+//
+//        btnFasilitas.setOnClickListener {
+//            val actionFasilitas = KostDetailFragmentDirections.actionFacilitiesFragment()
+//            Navigation.findNavController(view).navigate(actionFasilitas)
+//        }
+//
+//        btnCheckout.setOnClickListener {
+//            val actionCheckout = KostDetailFragmentDirections.actionCheckoutFragment()
+//            Navigation.findNavController(view).navigate(actionCheckout)
+//        }
 
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         viewModel.fetch(id)

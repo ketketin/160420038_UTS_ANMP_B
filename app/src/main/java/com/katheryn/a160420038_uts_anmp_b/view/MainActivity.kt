@@ -2,6 +2,7 @@ package com.katheryn.a160420038_uts_anmp_b.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -11,9 +12,6 @@ import com.katheryn.a160420038_uts_anmp_b.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    companion object{
-        var username =""
-    }
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navController: NavController
 
@@ -31,10 +29,27 @@ class MainActivity : AppCompatActivity() {
         val navView = findViewById<NavigationView>(R.id.navView)
         NavigationUI.setupWithNavController(navView, navController)
         bottomNav.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener{ _, destination, _ ->
+            when(destination.id) {
+                R.id.kostDetailFragment -> hideNavigation()
+                R.id.kostFacilitiesFragment -> hideNavigation()
+                R.id.kostPhotosFragment -> hideNavigation()
+                R.id.checkOutKostFragment -> hideNavigation()
+                else -> showNavigation()
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, drawerLayout)
                 || super.onSupportNavigateUp()
+    }
+
+    fun showNavigation(){
+        bottomNav.visibility = View.VISIBLE
+    }
+
+    fun hideNavigation(){
+        bottomNav.visibility = View.GONE
     }
 }

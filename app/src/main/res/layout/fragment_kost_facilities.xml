@@ -83,7 +83,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtKasurFasilitas" />
 
         <ImageView
-            android:id="@+id/txtFurniturFasilitas"
+            android:id="@+id/imgFurniture"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginStart="16dp"
@@ -93,13 +93,13 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <TextView
-            android:id="@+id/textView30"
+            android:id="@+id/txtFurnitureFasilitas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:text="Furniture"
-            app:layout_constraintStart_toEndOf="@+id/txtFurniturFasilitas"
+            app:layout_constraintStart_toEndOf="@+id/imgFurniture"
             app:layout_constraintTop_toBottomOf="@+id/txtPendinginFasilitas" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -10,11 +10,13 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.katheryn.a160420038_uts_anmp_b.model.Fasilitas
 import com.katheryn.a160420038_uts_anmp_b.model.Kost
 import org.json.JSONObject
 
 class KostListViewModel(application: Application): AndroidViewModel(application) {
     val kostLD = MutableLiveData<ArrayList<Kost>>()
+    val fasilitasLD = MutableLiveData<ArrayList<Fasilitas>>()
     val kostLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
 
@@ -30,41 +32,48 @@ class KostListViewModel(application: Application): AndroidViewModel(application)
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
-            {
-                loadingLD.value = false
-                Log.d("showvoley", it)
-
+            { response ->
                 val sType = object : TypeToken<ArrayList<Kost>>() {}.type
-                val result = Gson().fromJson<ArrayList<Kost>>(it, sType)
+                val result = Gson().fromJson<ArrayList<Kost>>(response, sType)
                 kostLD.value = result
                 loadingLD.value = false
 
                 Log.d("showvoley", result.toString())
             },
             {
-                Log.d("showvoley", it.toString())
+                Log.d("errorvoley", it.toString())
                 kostLoadErrorLD.value = false
                 loadingLD.value = false
-            })
-        stringRequest.tag = TAG
+            }).apply {
+                tag = "TAG"
+        }
         queue?.add(stringRequest)
     }
+    fun fasilitas(){
+        loadingLD.value = true
+        kostLoadErrorLD.value = false
 
-//    fun bookmark(){
-//        queue = Volley.newRequestQueue(getApplication())
-//        val url = ""
-//        val stringRequest = object : StringRequest(
-//            Method.POST, url,
-//            {
-//                Log.d("showvolley", it)
-//                val obj = JSONObject(it)
-//
-//                if(obj.getString("result") == "success"){
-//                    val data = obj.getS
-//                }
-//            }
-//        )
-//    }
+        queue = Volley.newRequestQueue(getApplication())
+        var url = "https://raw.githubusercontent.com/ketketin/json_uts_anmp/main/fasilitas.json"
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            {response ->
+                val sType = object : TypeToken<ArrayList<Fasilitas>>() { }.type
+                val result = Gson().fromJson<ArrayList<Fasilitas>>(response, sType)
+                fasilitasLD.value = result
+                loadingLD.value = false
+                Log.d("showvolley", response.toString())
+            },
+            {
+                loadingLD.value = false
+                kostLoadErrorLD.value = false
+                Log.d("errorvolley", it.toString())
+            }
+        ).apply {
+            tag = "TAG"
+        }
+        queue?.add(stringRequest)
+    }
 
     override fun onCleared() {
         super.onCleared()

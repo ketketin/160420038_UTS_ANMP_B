@@ -5,31 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.android.volley.Request
 import com.android.volley.RequestQueue
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.katheryn.a160420038_uts_anmp_b.R
+import com.katheryn.a160420038_uts_anmp_b.viewmodel.UserViewModel
 //import com.katheryn.a160420038_uts_anmp_b.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
     private var queue: RequestQueue? = null
+    private lateinit var viewModel: UserViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        txtUsernameLogin.setText("username")
-        txtPasswordLogin.setText("password")
 
-        btnLogin.setOnClickListener {
-            val username = tilUsernameLogin.editText?.text.toString()
-            val password = tilPasswordLogin.editText?.text.toString()
-        }
     }
 
     override fun onCreateView(
@@ -55,29 +48,19 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        txtRegister.setOnClickListener {
-//            val action = LoginFragmentDirections.actionRegister()
-//            Navigation.findNavController(it).navigate(action)
-//        }
-
-//        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-//
-//        btnLogin.setOnClickListener { btnView ->
-//            val username = txtUsernameLogin.text.toString()
-//            val password = txtPasswordLogin.text.toString()
-//
-//            if (username.isNotEmpty() && password.isNotEmpty()) {
-//                viewModel.login(username, password, btnView)
-//            } else {
-//                Toast.makeText(requireContext(), "Username or password cannot be empty", Toast.LENGTH_SHORT).show()
-//            }
-//        }
+        txtUsernameLogin.setText("username")
+        txtPasswordLogin.setText("password")
 
         btnLogin.setOnClickListener {
-            val username = txtUsernameLogin.text.toString()
-            val password = txtPasswordLogin.text.toString()
-            val action = LoginFragmentDirections.actionKostList(username)
-            Navigation.findNavController(it).navigate(action)
+            val username = tilUsernameLogin.editText?.text.toString()
+            val password = tilPasswordLogin.editText?.text.toString()
+
+            if(username.isNotEmpty() && password.isNotEmpty()){
+                viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+                viewModel.login(username, password)
+                val action = LoginFragmentDirections.actionKostList(username)
+                Navigation.findNavController(view).navigate(action)
+            }
         }
     }
 }

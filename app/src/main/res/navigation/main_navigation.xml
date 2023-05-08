@@ -55,6 +55,9 @@
         <action
             android:id="@+id/actionKostDetailFragment"
             app:destination="@id/kostDetailFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -88,6 +91,9 @@
         <action
             android:id="@+id/actionDetailFragment"
             app:destination="@id/kostDetailFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/kostPhotosFragment"

@@ -16,14 +16,13 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.katheryn.a160420038_uts_anmp_b.R
 import com.katheryn.a160420038_uts_anmp_b.view.adapter.KostListAdapter
 import com.katheryn.a160420038_uts_anmp_b.viewmodel.KostListViewModel
-//import com.katheryn.a160420038_uts_anmp_b.viewmodel.UserViewModel
+import com.katheryn.a160420038_uts_anmp_b.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_kost_list.*
 
 
 class KostListFragment : Fragment() {
     private lateinit var kostListViewModel: KostListViewModel
-//    private lateinit var userViewModel: UserViewModel
     private val kostListAdapter = KostListAdapter(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {

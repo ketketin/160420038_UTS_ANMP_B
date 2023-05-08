@@ -8,6 +8,7 @@ import android.widget.ProgressBar
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.katheryn.a160420038_uts_anmp_b.R
+import com.katheryn.a160420038_uts_anmp_b.model.Fasilitas
 import com.katheryn.a160420038_uts_anmp_b.model.Kost
 import com.katheryn.a160420038_uts_anmp_b.util.loadImage
 import com.katheryn.a160420038_uts_anmp_b.view.fragment.KostDetailFragment
@@ -15,7 +16,7 @@ import com.katheryn.a160420038_uts_anmp_b.view.fragment.KostDetailFragmentDirect
 import kotlinx.android.synthetic.main.fragment_kost_detail.view.*
 
 class KostDetailAdapter(private val kostList: ArrayList<Kost>,
-                        val likeOnClick: (String)-> Unit
+                        val fasilitas: ArrayList<Fasilitas>
 ): RecyclerView.Adapter<KostDetailAdapter.KostViewHolder>() {
     class KostViewHolder(val view: View): RecyclerView.ViewHolder(view)
 
@@ -37,43 +38,18 @@ class KostDetailAdapter(private val kostList: ArrayList<Kost>,
         holder.view.txtDescriptionKostDetail.text = kost.description.toString()
         holder.view.txtNameKostDetail.text = kost.name.toString()
 
-        holder.view.btnBookmark.setImageResource(
-            if(kost.isLiked == 1) R.drawable.ic_baseline_bookmark_24
-            else R.drawable.ic_baseline_bookmark_border_24
-        )
-
-//        holder.view.btnBookmark.setOnClickListener {
-//            likeOnClick(kost.id)
-//
-//            with(kost) {
-//                isLiked = when(isLiked) {
-//                    1 -> {
-//                        0
-//                    }
-//                    else -> {
-//                        1
-//                    }
-//                }
-//
-//                holder.view.btnBookmark.setImageResource(
-//                    if (isLiked == 1) R.drawable.ic_baseline_bookmark_24
-//                    else R.drawable.ic_baseline_bookmark_border_24
-//                )
-//            }
-//        }
-
         holder.view.btnPhotos.setOnClickListener {
             val action = KostDetailFragmentDirections.actionPhotosFragment()
             Navigation.findNavController(it).navigate(action)
         }
 
         holder.view.btnFasilitas.setOnClickListener {
-            val action = KostDetailFragmentDirections.actionFacilitiesFragment()
+            val action = KostDetailFragmentDirections.actionFacilitiesFragment(kost.id.toString())
             Navigation.findNavController(it).navigate(action)
         }
 
         holder.view.btnCheckout.setOnClickListener {
-            val action = KostDetailFragmentDirections.actionCheckoutFragment()
+            val action = KostDetailFragmentDirections.actionCheckoutFragment(kost.id.toString())
             Navigation.findNavController(it).navigate(action)
         }
     }

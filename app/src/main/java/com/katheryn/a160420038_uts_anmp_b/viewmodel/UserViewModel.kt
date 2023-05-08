@@ -1,61 +1,51 @@
 package com.katheryn.a160420038_uts_anmp_b.viewmodel
 
 import android.app.Application
-import android.content.Intent
 import android.util.Log
-import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.navigation.Navigation
-import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.katheryn.a160420038_uts_anmp_b.model.User
-import com.katheryn.a160420038_uts_anmp_b.view.MainActivity
 import org.json.JSONObject
 
 class UserViewModel(application: Application): AndroidViewModel(application) {
     val userLD = MutableLiveData<User>()
-    val userLoadErrorLD = MutableLiveData<User>()
-    val loadingLD = MutableLiveData<Boolean>()
 
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
 
-    fun login(username: String?, password: String?){
-//        queue = Volley.newRequestQueue(this)
+    fun login(username: String?, password: String?) {
+        queue = Volley.newRequestQueue(getApplication())
         var url = "https://raw.githubusercontent.com/ketketin/json_uts_anmp/main/user.json"
-        val stringRequest = StringRequest(
-            Request.Method.GET, url,
-            { response ->
-                val sType = object : TypeToken<User>() { }.type
-                val result = Gson().fromJson<User>(response, sType)
-                if(result.username == username){
-                    if(result.password == password){
-//                        val intent = Intent(this, MainActivity::class.java)
-//                        startActivity(intent)
-//                        finish()
-                    } else {
-//                        Toast.makeText(this, "Your password is incorrect", Toast.LENGTH_SHORT).show()
-                    }
+        val stringRequest = object : StringRequest(
+            Method.POST, url,
+            {
+                Log.d("showvolley", it)
+                val obj = JSONObject(it)
+
+                if (obj.getString("result") == "success") {
+                    val data = obj.getString("data")
+                    val result = Gson().fromJson(data, User::class.java)
                 } else {
-//                    Toast.makeText(this, "Your username is incorrect", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        getApplication(),
+                        "Username or password incorrect.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-//                    }
-                //restaurantDetailLiveData.value = result
-                Log.d("showvolley", response.toString())
             },
             {
-                Log.d("errorvolley", it.toString())
+                Log.e("showvolley", it.toString())
             }
-        ).apply {
-            tag = "TAG"
+        ){
+
         }
+        stringRequest.apply { tag = TAG }
 
         queue?.add(stringRequest)
     }
@@ -72,8 +62,8 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
                 if (obj.getString("result") == "success") {
                     val data = obj.getString("data")
                     val uType = object : TypeToken<ArrayList<User>>() { }.type
-                    val result = Gson().fromJson<ArrayList<User>>(data, uType)
-                    userLoadErrorLD.value = result[0]
+                    val result = Gson().fromJson<User>(data, uType)
+                    userLD.value = result
                 }
             },
             {
