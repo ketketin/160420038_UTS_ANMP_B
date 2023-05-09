@@ -1,5 +1,6 @@
 package com.katheryn.a160420038_uts_anmp_b.view.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -30,11 +31,18 @@ class SettingsFragment : Fragment() {
         viewModel.fetch()
 
         observeViewModel()
+
+        btnLogout.setOnClickListener {
+            val intent = Intent(activity, LoginFragment::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun observeViewModel(){
-        viewModel.userLD.observe(viewLifecycleOwner) {
-//            txtName.text = it.username
-        }
+        viewModel.userLD.observe(viewLifecycleOwner, Observer {
+            txtUsernameSettings.text = it.username
+            txtUserIDSettings.text = it.id
+            txtPhoneSettings.text = it.phone
+        })
     }
 }

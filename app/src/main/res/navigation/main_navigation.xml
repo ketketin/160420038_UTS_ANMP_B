@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/kostListFragment"
+        android:id="@+id/itemHome"
         android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.KostListFragment"
         android:label="fragment_kost_list"
         tools:layout="@layout/fragment_kost_list" >
@@ -29,11 +29,8 @@
             android:name="id"
             app:argType="string" />
         <action
-            android:id="@+id/actionCheckoutFragment"
-            app:destination="@id/checkOutKostFragment" />
-        <action
             android:id="@+id/actionListFragment"
-            app:destination="@id/kostListFragment" />
+            app:destination="@id/itemHome" />
         <action
             android:id="@+id/actionFacilitiesFragment"
             app:destination="@id/kostFacilitiesFragment" />
@@ -42,7 +39,7 @@
             app:destination="@id/kostPhotosFragment" />
         <action
             android:id="@+id/actionKostListFragment"
-            app:destination="@id/kostListFragment" />
+            app:destination="@id/itemHome" />
     </fragment>
     <fragment
         android:id="@+id/checkOutKostFragment"
@@ -51,25 +48,28 @@
         tools:layout="@layout/fragment_check_out_kost" >
         <action
             android:id="@+id/actionMyKostFragment"
-            app:destination="@id/myKostFragment" />
-        <action
-            android:id="@+id/actionKostDetailFragment"
-            app:destination="@id/kostDetailFragment" />
+            app:destination="@id/itemCheckout" />
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/actionItemCheckout"
+            app:destination="@id/itemCheckout" />
     </fragment>
     <fragment
-        android:id="@+id/favoriteFragment"
+        android:id="@+id/itemBookmark"
         android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
             android:id="@+id/action_favoriteFragment_to_kostListFragment"
-            app:destination="@id/kostListFragment" />
+            app:destination="@id/itemHome" />
+        <action
+            android:id="@+id/actionDetailFragment"
+            app:destination="@id/kostDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/settingsFragment"
+        android:id="@+id/itemProfile"
         android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
@@ -78,7 +78,7 @@
             app:argType="string" />
         <action
             android:id="@+id/action_settingsFragment_to_kostListFragment"
-            app:destination="@id/kostListFragment" />
+            app:destination="@id/itemHome" />
     </fragment>
     <fragment
         android:id="@+id/kostFacilitiesFragment"
@@ -105,13 +105,16 @@
             app:destination="@id/kostDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/myKostFragment"
+        android:id="@+id/itemCheckout"
         android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.MyKostFragment"
         android:label="fragment_my_kost"
         tools:layout="@layout/fragment_my_kost" >
         <action
             android:id="@+id/action_myKostFragment_to_kostListFragment"
-            app:destination="@id/kostListFragment" />
+            app:destination="@id/itemHome" />
+        <action
+            android:id="@+id/actionCheckoutFragment"
+            app:destination="@id/checkOutKostFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -120,15 +123,15 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/actionKostList"
-            app:destination="@id/kostListFragment" />
+            app:destination="@id/itemHome" />
         <action
             android:id="@+id/actionFavoriteFragment"
-            app:destination="@id/favoriteFragment" />
+            app:destination="@id/itemBookmark" />
         <action
             android:id="@+id/actionMyKostFragment"
-            app:destination="@id/myKostFragment" />
+            app:destination="@id/itemCheckout" />
         <action
             android:id="@+id/actionSettingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/itemProfile" />
     </fragment>
 </navigation>

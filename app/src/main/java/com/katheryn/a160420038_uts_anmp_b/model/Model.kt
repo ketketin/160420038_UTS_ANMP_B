@@ -31,9 +31,10 @@ data class Fasilitas(
 )
 
 data class Checkout(
-    val kost: Kost,
-    val date: String?,
-    val totalPrice: String?
+    val kostID: String?,
+    val kost_name: String?,
+    val totalPrice: String?,
+    val photoUrl: String?
 )
 data class User(
     val id: String?,

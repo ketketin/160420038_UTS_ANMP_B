@@ -13,6 +13,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.katheryn.a160420038_uts_anmp_b.Global
 import com.katheryn.a160420038_uts_anmp_b.R
 import com.katheryn.a160420038_uts_anmp_b.view.adapter.KostListAdapter
 import com.katheryn.a160420038_uts_anmp_b.viewmodel.KostListViewModel
@@ -52,18 +53,10 @@ class KostListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        Global.fragment = "KostListFragment"
         kostListViewModel = ViewModelProvider(this).get(KostListViewModel::class.java)
 
-//        if (!userViewModel.isLogin()) {
-//            val action = KostListFragmentDirections.actionLoginFragment()
-//            Navigation.findNavController(view).navigate(action)
-//        } else {
-//            userViewModel.fetch()
-//        }
-
         kostListViewModel.refresh()
-//        kostListAdapter = KostListAdapter(arrayListOf()){ kostListViewModel.}
 
         val recView = view.findViewById<RecyclerView>(R.id.rvListKost)
         recView.layoutManager = LinearLayoutManager(context)

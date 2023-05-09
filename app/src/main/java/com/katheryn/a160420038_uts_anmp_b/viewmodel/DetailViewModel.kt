@@ -14,8 +14,6 @@ import com.katheryn.a160420038_uts_anmp_b.model.Kost
 
 class DetailViewModel(application: Application): AndroidViewModel(application) {
     val kostLD = MutableLiveData<Kost>()
-    val kostLoadErrorLD = MutableLiveData<Boolean>()
-    val loadingLD = MutableLiveData<Boolean>()
 
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
@@ -40,7 +38,6 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
             {
                 Log.d("showvoley", it.toString())
             }).apply {
-//            stringRequest.tag = TAG
                 tag = "TAG"
         }
         queue?.add(stringRequest)

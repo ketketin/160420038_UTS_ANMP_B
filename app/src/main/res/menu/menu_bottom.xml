@@ -11,9 +11,9 @@
             android:icon="@drawable/ic_baseline_bookmark_24"
             android:title="My Bookmark" />
         <item
-            android:id="@+id/itemKost"
+            android:id="@+id/itemCheckout"
             android:icon="@drawable/ic_baseline_shopping_basket_24"
-            android:title="My Kost" />
+            android:title="Checkout" />
         <item
             android:id="@+id/itemProfile"
             android:icon="@drawable/ic_baseline_person_24"

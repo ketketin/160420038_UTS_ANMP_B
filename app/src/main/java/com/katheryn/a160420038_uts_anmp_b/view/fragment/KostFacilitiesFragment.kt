@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.fragment_kost_facilities.*
 
 class KostFacilitiesFragment : BottomSheetDialogFragment() {
     private lateinit var fasilitasViewModel : KostListViewModel
-    private val kostListAdapter = KostListAdapter(arrayListOf())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -37,7 +36,7 @@ class KostFacilitiesFragment : BottomSheetDialogFragment() {
         }
 
         fasilitasViewModel = ViewModelProvider(this).get(KostListViewModel::class.java)
-        fasilitasViewModel.fasilitas()
+        fasilitasViewModel.fasilitas(kostID)
 
         observeViewModel()
     }

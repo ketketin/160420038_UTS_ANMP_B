@@ -5,11 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.katheryn.a160420038_uts_anmp_b.Global
 import com.katheryn.a160420038_uts_anmp_b.R
 import com.katheryn.a160420038_uts_anmp_b.model.Kost
 import com.katheryn.a160420038_uts_anmp_b.util.loadImage
+import com.katheryn.a160420038_uts_anmp_b.view.fragment.FavoriteFragmentDirections
 import com.katheryn.a160420038_uts_anmp_b.view.fragment.KostListFragmentDirections
 import kotlinx.android.synthetic.main.fragment_kost_detail.*
 import kotlinx.android.synthetic.main.fragment_kost_detail.view.*
@@ -27,18 +30,23 @@ class KostListAdapter(
     }
 
     override fun onBindViewHolder(holder: KostViewHolder, position: Int) {
-        holder.view.txtName.text = kostList[position].name.toString()
-        holder.view.txtAddress.text = kostList[position].address.toString()
-        holder.view.txtPrice.text = kostList[position].price.toString()
-
-        holder.view.btnDetail.setOnClickListener {
-            val action = KostListFragmentDirections.actionKostDetail(kostList[position].id!!)
-            Navigation.findNavController(it).navigate(action)
-        }
-
+        val kost = kostList[position]
+        holder.view.txtName.text = kost.name
+        holder.view.txtAddress.text = kost.address
+        holder.view.txtPrice.text = kost.price
         var imageView = holder.view.findViewById<ImageView>(R.id.imageKostList)
         var progressBar = holder.view.findViewById<ProgressBar>(R.id.progressBar)
         imageView.loadImage(kostList[position].photoUrl, progressBar)
+
+        holder.view.btnDetail.setOnClickListener {
+            var action: NavDirections
+            if(Global.fragment == "KostListFragment"){
+                action = KostListFragmentDirections.actionKostDetail(kost.id.toString())
+            } else {
+                action = FavoriteFragmentDirections.actionDetailFragment(kost.id.toString())
+            }
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

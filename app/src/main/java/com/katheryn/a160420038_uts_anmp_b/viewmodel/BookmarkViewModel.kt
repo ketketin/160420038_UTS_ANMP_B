@@ -26,23 +26,24 @@ class BookmarkViewModel(application: Application): AndroidViewModel(application)
 
         queue = Volley.newRequestQueue(getApplication())
         var url = "https://raw.githubusercontent.com/ketketin/json_uts_anmp/main/bookmark.json"
+
         val stringRequest = StringRequest(
             Request.Method.GET, url,
-            {
-                val sType = object : TypeToken<ArrayList<Kost>>() { }.type
-                val result = Gson().fromJson<ArrayList<Kost>>(it, sType)
+            { response ->
+                val sType = object : TypeToken<ArrayList<Kost>>() {}.type
+                val result = Gson().fromJson<ArrayList<Kost>>(response, sType)
                 bookmarLD.value = result
                 loadingLD.value = false
-                Log.d("showvolley", it.toString())
+
+                Log.d("showvoley", result.toString())
             },
             {
+                Log.d("errorvoley", it.toString())
+                bookmarkLoadErrorLD.value = false
                 loadingLD.value = false
-                bookmarkLoadErrorLD.value = true
-            }
-        ).apply {
+            }).apply {
             tag = "TAG"
         }
-
         queue?.add(stringRequest)
     }
 }

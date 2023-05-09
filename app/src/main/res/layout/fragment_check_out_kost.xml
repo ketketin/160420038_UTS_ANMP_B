@@ -71,6 +71,16 @@
                     app:autoSizeTextType="uniform"
                     app:layout_constraintStart_toEndOf="@+id/imgChekoutKost"
                     app:layout_constraintTop_toBottomOf="@+id/txtNameCheckputKost" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarCheckout"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgChekoutKost"
+                    app:layout_constraintEnd_toEndOf="@+id/imgChekoutKost"
+                    app:layout_constraintStart_toStartOf="@+id/imgChekoutKost"
+                    app:layout_constraintTop_toTopOf="@+id/imgChekoutKost" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

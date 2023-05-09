@@ -56,10 +56,12 @@ class LoginFragment : Fragment() {
             val password = tilPasswordLogin.editText?.text.toString()
 
             if(username.isNotEmpty() && password.isNotEmpty()){
-                viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-                viewModel.login(username, password)
-                val action = LoginFragmentDirections.actionKostList(username)
-                Navigation.findNavController(view).navigate(action)
+                if(username == "Katheryn" && password == "kath123"){
+                    viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+                    val action = LoginFragmentDirections.actionKostList(username)
+                    Navigation.findNavController(view).navigate(action)
+                }
+
             }
         }
     }

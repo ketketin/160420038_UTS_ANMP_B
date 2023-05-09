@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.katheryn.a160420038_uts_anmp_b.Global
 import com.katheryn.a160420038_uts_anmp_b.R
 import com.katheryn.a160420038_uts_anmp_b.util.loadImage
 import com.katheryn.a160420038_uts_anmp_b.viewmodel.DetailViewModel
@@ -35,25 +36,20 @@ class KostPhotosFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.let {
-            it.toolbar.visibility = View.VISIBLE
-            it.bottomNav.visibility = View.VISIBLE
-
-            it.toolbar.title = "Ubaya Kost Photos"
-        }
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_kost_photos, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var id = ""
+        Global.fragment = "PhotosFragment"
+        var kostID = ""
         arguments?.let {
-            id = KostDetailFragmentArgs.fromBundle(requireArguments()).id
+            kostID = KostDetailFragmentArgs.fromBundle(requireArguments()).id
         }
 
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        viewModel.fetch(id)
+        viewModel.fetch(kostID)
         observeViewModel()
     }
 

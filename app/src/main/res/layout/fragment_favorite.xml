@@ -7,9 +7,10 @@
     tools:context=".view.fragment.FavoriteFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayoutFavorite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.StudentListFragment">
+        tools:context=".view.FavoriteFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -37,8 +38,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Error While Loading Data"
-                tools:layout_editor_absoluteX="128dp"
-                tools:layout_editor_absoluteY="356dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/rvKostFavorite"
+                app:layout_constraintTop_toTopOf="@+id/rvKostFavorite" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

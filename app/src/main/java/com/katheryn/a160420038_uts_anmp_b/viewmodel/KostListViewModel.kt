@@ -49,7 +49,7 @@ class KostListViewModel(application: Application): AndroidViewModel(application)
         }
         queue?.add(stringRequest)
     }
-    fun fasilitas(){
+    fun fasilitas(id: String){
         loadingLD.value = true
         kostLoadErrorLD.value = false
 
