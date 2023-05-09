@@ -12,21 +12,21 @@ import com.katheryn.a160420038_uts_anmp_b.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var drawerLayout: DrawerLayout
+//    private lateinit var drawerLayout: DrawerLayout
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        drawerLayout = findViewById(R.id.drawerLayout)
+//        drawerLayout = findViewById(R.id.drawerLayout)
 
         navController =
-            (supportFragmentManager.findFragmentById(R.id.fragmentHost) as
+            (supportFragmentManager.findFragmentById(R.id.hostFragment) as
                     NavHostFragment).navController
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
-        val navView = findViewById<NavigationView>(R.id.navView)
+//        val navView = findViewById<NavigationView>(R.id.navView)
         NavigationUI.setupWithNavController(navView, navController)
         bottomNav.setupWithNavController(navController)
         navController.addOnDestinationChangedListener{ _, destination, _ ->
@@ -35,13 +35,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.kostFacilitiesFragment -> hideNavigation()
                 R.id.kostPhotosFragment -> hideNavigation()
                 R.id.checkOutKostFragment -> hideNavigation()
+                R.id.detailCheckoutFragment -> hideNavigation()
                 else -> showNavigation()
             }
         }
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, drawerLayout)
+        return navController.navigateUp(drawerLayout)
                 || super.onSupportNavigateUp()
     }
 

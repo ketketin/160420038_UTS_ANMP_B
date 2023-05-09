@@ -40,12 +40,6 @@ class KostListFragment : Fragment() {
                     activity?.moveTaskToBack(true)
                 }
             })
-
-            it.toolbar.visibility = View.VISIBLE
-            it.bottomNav.visibility = View.VISIBLE
-            it.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
-
-            it.toolbar.title = "Kost List Ubaya"
         }
 
         // Inflate the layout for this fragment
@@ -62,7 +56,7 @@ class KostListFragment : Fragment() {
         recView.layoutManager = LinearLayoutManager(context)
         recView.adapter = kostListAdapter
 
-        val refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayout)
+        val refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayoutKostList)
         refreshLayout.setOnRefreshListener {
             recView.visibility = View.GONE
             txtError.visibility = View.GONE

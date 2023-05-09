@@ -6,13 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.katheryn.a160420038_uts_anmp_b.R
 import com.katheryn.a160420038_uts_anmp_b.util.loadImage
 import com.katheryn.a160420038_uts_anmp_b.viewmodel.UserViewModel
 //import com.katheryn.a160420038_uts_anmp_b.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : Fragment() {
@@ -31,18 +29,16 @@ class SettingsFragment : Fragment() {
         viewModel.fetch()
 
         observeViewModel()
-
-        btnLogout.setOnClickListener {
-            val intent = Intent(activity, LoginFragment::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun observeViewModel(){
-        viewModel.userLD.observe(viewLifecycleOwner, Observer {
-            txtUsernameSettings.text = it.username
-            txtUserIDSettings.text = it.id
-            txtPhoneSettings.text = it.phone
-        })
+        viewModel.userLD.observe(viewLifecycleOwner){
+            it?.let {
+                txtUsernameSettings.text = it.username
+                txtUserIDSettings.text = it.id
+                txtPhoneSettings.text = it.phone
+                imgProfileSettings.loadImage(it.photoUrl, progressBarProfile)
+            }
+        }
     }
 }

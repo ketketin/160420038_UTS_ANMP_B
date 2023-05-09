@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/itemHome">
 
     <fragment
         android:id="@+id/itemHome"
@@ -13,12 +13,6 @@
         <action
             android:id="@+id/actionKostDetail"
             app:destination="@id/kostDetailFragment" />
-        <action
-            android:id="@+id/actionLoginFragment"
-            app:destination="@id/loginFragment" />
-        <argument
-            android:name="username"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/kostDetailFragment"
@@ -32,14 +26,17 @@
             android:id="@+id/actionListFragment"
             app:destination="@id/itemHome" />
         <action
-            android:id="@+id/actionFacilitiesFragment"
-            app:destination="@id/kostFacilitiesFragment" />
-        <action
             android:id="@+id/actionPhotosFragment"
             app:destination="@id/kostPhotosFragment" />
         <action
             android:id="@+id/actionKostListFragment"
             app:destination="@id/itemHome" />
+        <action
+            android:id="@+id/actionDetailtoCheckoutFragment"
+            app:destination="@id/checkOutKostFragment" />
+        <action
+            android:id="@+id/actionKostFasilitiesFragment"
+            app:destination="@id/kostFacilitiesFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkOutKostFragment"
@@ -81,21 +78,6 @@
             app:destination="@id/itemHome" />
     </fragment>
     <fragment
-        android:id="@+id/kostFacilitiesFragment"
-        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.KostFacilitiesFragment"
-        android:label="fragment_kost_facilities"
-        tools:layout="@layout/fragment_kost_facilities" >
-        <action
-            android:id="@+id/actionKostDetailFragment"
-            app:destination="@id/kostDetailFragment" />
-        <action
-            android:id="@+id/actionDetailFragment"
-            app:destination="@id/kostDetailFragment" />
-        <argument
-            android:name="id"
-            app:argType="string" />
-    </fragment>
-    <fragment
         android:id="@+id/kostPhotosFragment"
         android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.KostPhotosFragment"
         android:label="fragment_kost_photos"
@@ -103,6 +85,9 @@
         <action
             android:id="@+id/actionKostDetailFragment"
             app:destination="@id/kostDetailFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/itemCheckout"
@@ -113,25 +98,28 @@
             android:id="@+id/action_myKostFragment_to_kostListFragment"
             app:destination="@id/itemHome" />
         <action
-            android:id="@+id/actionCheckoutFragment"
-            app:destination="@id/checkOutKostFragment" />
+            android:id="@+id/actionDetailCheckout"
+            app:destination="@id/detailCheckoutFragment" />
     </fragment>
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:id="@+id/detailCheckoutFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.DetailCheckoutFragment"
+        android:label="fragment_detail_checkout"
+        tools:layout="@layout/fragment_detail_checkout" >
         <action
-            android:id="@+id/actionKostList"
+            android:id="@+id/actionDetailCheckouttoItemHome"
             app:destination="@id/itemHome" />
-        <action
-            android:id="@+id/actionFavoriteFragment"
-            app:destination="@id/itemBookmark" />
-        <action
-            android:id="@+id/actionMyKostFragment"
-            app:destination="@id/itemCheckout" />
-        <action
-            android:id="@+id/actionSettingsFragment"
-            app:destination="@id/itemProfile" />
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
+    <dialog
+        android:id="@+id/kostFacilitiesFragment"
+        android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.KostFacilitiesFragment"
+        android:label="fragment_kost_facilities"
+        tools:layout="@layout/fragment_kost_facilities" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </dialog>
 </navigation>

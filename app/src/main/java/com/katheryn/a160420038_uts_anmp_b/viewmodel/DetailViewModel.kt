@@ -10,6 +10,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.katheryn.a160420038_uts_anmp_b.Global
 import com.katheryn.a160420038_uts_anmp_b.model.Kost
 
 class DetailViewModel(application: Application): AndroidViewModel(application) {
@@ -19,9 +20,8 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
     private var queue: RequestQueue? = null
 
     fun fetch(id: String) {
-
         queue = Volley.newRequestQueue(getApplication())
-        val url = "https://raw.githubusercontent.com/ketketin/json_uts_anmp/main/kost.json"
+        val url = "https://raw.githubusercontent.com/ketketin/json_uts_anmp/main/kostUbaya.json"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

@@ -104,4 +104,5 @@
             app:layout_constraintStart_toEndOf="@+id/imgFurniture"
             app:layout_constraintTop_toBottomOf="@+id/txtPendinginFasilitas" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

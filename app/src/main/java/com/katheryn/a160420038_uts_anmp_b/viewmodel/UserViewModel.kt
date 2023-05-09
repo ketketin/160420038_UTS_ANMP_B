@@ -11,6 +11,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.katheryn.a160420038_uts_anmp_b.Global
 import com.katheryn.a160420038_uts_anmp_b.model.User
 import org.json.JSONObject
 
@@ -20,36 +21,6 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
 
-//    fun login(username: String?, password: String?) {
-//        queue = Volley.newRequestQueue(getApplication())
-//        var url = "https://raw.githubusercontent.com/ketketin/json_uts_anmp/main/user.json"
-//        val stringRequest = object : StringRequest(
-//            Method.POST, url,
-//            {
-//                Log.d("showvolley", it)
-//                val obj = JSONObject(it)
-//
-//                if (obj.getString("result") == "success") {
-//                    val data = obj.getString("data")
-//                    val result = Gson().fromJson(data, User::class.java)
-//                } else {
-//                    Toast.makeText(
-//                        getApplication(),
-//                        "Username or password incorrect.",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-//            },
-//            {
-//                Log.e("showvolley", it.toString())
-//            }
-//        ){
-//
-//        }
-//        stringRequest.apply { tag = TAG }
-//
-//        queue?.add(stringRequest)
-//    }
     fun fetch() {
         queue = Volley.newRequestQueue(getApplication())
         val url = "https://raw.githubusercontent.com/ketketin/json_uts_anmp/main/user.json"
@@ -57,10 +28,15 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                val sType = object : TypeToken<User>() { }.type
-                val result = Gson().fromJson<User>(response, sType)
-                userLD.value = result
-                Log.d("showvolley", response.toString())
+                val sType = object : TypeToken<ArrayList<User>>() { }.type
+                val result = Gson().fromJson<ArrayList<User>>(response, sType)
+                for(i in result){
+                    if(i.id == Global.userID){
+                        userLD.value = i
+                    }
+                }
+//                userLD.value = result
+                Log.d("showvolley", response)
             },
             {
                 Log.d("errorvolley", it.toString())

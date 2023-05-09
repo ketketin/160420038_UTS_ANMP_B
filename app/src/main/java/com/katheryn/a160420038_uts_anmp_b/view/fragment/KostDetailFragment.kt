@@ -44,13 +44,18 @@ class KostDetailFragment : Fragment() {
         }
 
         btnPhotos.setOnClickListener {
-            val actionPhotos = KostDetailFragmentDirections.actionPhotosFragment()
-            Navigation.findNavController(view).navigate(actionPhotos)
+            val actionPhotos = KostDetailFragmentDirections.actionPhotosFragment(id)
+            Navigation.findNavController(it).navigate(actionPhotos)
         }
 
         btnFasilitas.setOnClickListener {
-            val actionFasilitas = KostDetailFragmentDirections.actionFacilitiesFragment(id)
-            Navigation.findNavController(view).navigate(actionFasilitas)
+            val actionFasilitas = KostDetailFragmentDirections.actionKostFasilitiesFragment(id)
+            Navigation.findNavController(it).navigate(actionFasilitas)
+        }
+
+        btnCheckoutDetail.setOnClickListener {
+            val actionCheckout = KostDetailFragmentDirections.actionDetailtoCheckoutFragment(id)
+            Navigation.findNavController(view).navigate(actionCheckout)
         }
 
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)

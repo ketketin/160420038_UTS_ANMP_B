@@ -13,24 +13,16 @@ import com.katheryn.a160420038_uts_anmp_b.R
 import com.katheryn.a160420038_uts_anmp_b.util.loadImage
 import com.katheryn.a160420038_uts_anmp_b.view.adapter.KostListAdapter
 import com.katheryn.a160420038_uts_anmp_b.viewmodel.CheckoutViewModel
+import com.katheryn.a160420038_uts_anmp_b.viewmodel.DetailViewModel
 import kotlinx.android.synthetic.main.fragment_check_out_kost.*
 import kotlinx.android.synthetic.main.fragment_kost_detail.*
 
 class CheckOutKostFragment : Fragment() {
-    private lateinit var viewModel: CheckoutViewModel
+    private lateinit var viewModel: DetailViewModel
+//    private lateinit var checkviewModel: CheckoutViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-    }
-
-    fun observerViewModel(){
-        viewModel.checkoutLD2.observe(viewLifecycleOwner, Observer {
-            imgChekoutKost.loadImage(it.photoUrl, progressBarCheckout)
-            txtPriceCheckOut.setText(it.totalPrice)
-            txtNameCheckputKost.setText(it.kost_name)
-            txtTotalCheckOut.setText(it.totalPrice)
-            txtPriceKostCheckout.setText(it.totalPrice)
-        })
     }
 
     override fun onCreateView(
@@ -54,9 +46,19 @@ class CheckOutKostFragment : Fragment() {
             Navigation.findNavController(it).navigate(action)
         }
 
-        viewModel = ViewModelProvider(this).get(CheckoutViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         viewModel.fetch(kostID)
         observerViewModel()
 
+    }
+
+    fun observerViewModel(){
+        viewModel.kostLD.observe(viewLifecycleOwner) {
+            imgChekoutKost.loadImage(it.photoUrl, progressBarCheckout)
+            txtPriceCheckOut.setText(it.price)
+            txtNameCheckputKost.setText(it.name)
+            txtTotalCheckOut.setText(it.price)
+            txtPriceKostCheckout.setText(it.price)
+        }
     }
 }

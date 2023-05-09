@@ -14,6 +14,7 @@ import com.katheryn.a160420038_uts_anmp_b.model.Kost
 import com.katheryn.a160420038_uts_anmp_b.util.loadImage
 import com.katheryn.a160420038_uts_anmp_b.view.fragment.FavoriteFragmentDirections
 import com.katheryn.a160420038_uts_anmp_b.view.fragment.KostListFragmentDirections
+import com.katheryn.a160420038_uts_anmp_b.view.fragment.MyKostFragmentDirections
 import kotlinx.android.synthetic.main.fragment_kost_detail.*
 import kotlinx.android.synthetic.main.fragment_kost_detail.view.*
 import kotlinx.android.synthetic.main.kost_list_item.view.*
@@ -42,8 +43,10 @@ class KostListAdapter(
             var action: NavDirections
             if(Global.fragment == "KostListFragment"){
                 action = KostListFragmentDirections.actionKostDetail(kost.id.toString())
-            } else {
+            } else if(Global.fragment == "FavoriteFragment") {
                 action = FavoriteFragmentDirections.actionDetailFragment(kost.id.toString())
+            } else {
+                action = MyKostFragmentDirections.actionDetailCheckout(kost.id.toString())
             }
             Navigation.findNavController(it).navigate(action)
         }

@@ -15,23 +15,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_kost_photos.*
 
 class KostPhotosFragment : Fragment() {
-    private lateinit var viewModel: DetailViewModel
+    private lateinit var photosViewModel: DetailViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
     }
 
-    fun observeViewModel(){
-        viewModel.kostLD.observe(viewLifecycleOwner, Observer{
-            photoUrl.loadImage(it.photoUrl, progressBarPhotoURL)
-            photo1.loadImage(it.photo1, progressBarPhoto1)
-            photo2.loadImage(it.photo2, progressBarPhotos2)
-            photo3.loadImage(it.photo3, progressBarPhotos3)
-        })
-    }
-
+    var kostID = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,15 +32,22 @@ class KostPhotosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Global.fragment = "PhotosFragment"
-        var kostID = ""
         arguments?.let {
-            kostID = KostDetailFragmentArgs.fromBundle(requireArguments()).id
+            kostID = KostPhotosFragmentArgs.fromBundle(requireArguments()).id
         }
 
-        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        viewModel.fetch(kostID)
+        photosViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        photosViewModel.fetch(kostID)
         observeViewModel()
+    }
+
+    fun observeViewModel(){
+        photosViewModel.kostLD.observe(viewLifecycleOwner){
+            photoUrl.loadImage(it.photoUrl, progressBarPhotoURL)
+            photo1.loadImage(it.photo1, progressBarPhoto1)
+            photo2.loadImage(it.photo2, progressBarPhotos2)
+            photo3.loadImage(it.photo3, progressBarPhotos3)
+        }
     }
 
 }

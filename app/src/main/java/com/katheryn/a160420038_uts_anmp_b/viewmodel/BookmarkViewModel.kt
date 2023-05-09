@@ -17,7 +17,6 @@ class BookmarkViewModel(application: Application): AndroidViewModel(application)
     val bookmarkLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
 
-    val TAG = "volleyTag"
     private var queue: RequestQueue? = null
 
     fun refresh(){

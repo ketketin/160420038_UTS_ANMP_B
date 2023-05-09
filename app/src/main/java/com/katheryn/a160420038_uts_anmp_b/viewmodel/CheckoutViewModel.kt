@@ -10,11 +10,11 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.katheryn.a160420038_uts_anmp_b.model.Checkout
+import com.katheryn.a160420038_uts_anmp_b.model.Kost
 
 class CheckoutViewModel(application: Application): AndroidViewModel(application) {
-    val checkoutLD = MutableLiveData<ArrayList<Checkout>>()
-    val checkoutLD2 = MutableLiveData<Checkout>()
+    val myKostLD = MutableLiveData<ArrayList<Kost>>()
+    val checkoutLD = MutableLiveData<Kost>()
     val checkoutLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
 
@@ -29,21 +29,21 @@ class CheckoutViewModel(application: Application): AndroidViewModel(application)
         var url = "https://raw.githubusercontent.com/ketketin/json_uts_anmp/main/checkout.json"
         val stringRequest = StringRequest(
             Request.Method.GET, url,
-            {
-                val sType = object : TypeToken<ArrayList<Checkout>>() { }.type
-                val result = Gson().fromJson<ArrayList<Checkout>>(it, sType)
-                checkoutLD.value = result
+            { response ->
+                val sType = object : TypeToken<ArrayList<Kost>>() {}.type
+                val result = Gson().fromJson<ArrayList<Kost>>(response, sType)
+                myKostLD.value = result
                 loadingLD.value = false
-                Log.d("showvolley", it.toString())
+
+                Log.d("showvoley", result.toString())
             },
             {
+                Log.d("errorvoley", it.toString())
+                checkoutLoadErrorLD.value = false
                 loadingLD.value = false
-                checkoutLoadErrorLD.value = true
-            }
-        ).apply {
+            }).apply {
             tag = "TAG"
         }
-
         queue?.add(stringRequest)
     }
 
@@ -54,11 +54,11 @@ class CheckoutViewModel(application: Application): AndroidViewModel(application)
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response->
-                val sType = object : TypeToken<ArrayList<Checkout>>() { }.type
-                val result = Gson().fromJson<ArrayList<Checkout>>(response, sType)
+                val sType = object : TypeToken<ArrayList<Kost>>() { }.type
+                val result = Gson().fromJson<ArrayList<Kost>>(response, sType)
                 for(i in result){
-                    if(i.kostID == id){
-                        checkoutLD2.value = i
+                    if(i.id == id){
+                        checkoutLD.value = i
                     }
                 }
                 Log.d("showvoley", response)

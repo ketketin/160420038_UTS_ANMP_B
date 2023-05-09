@@ -7,25 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.katheryn.a160420038_uts_anmp_b.Global
 import com.katheryn.a160420038_uts_anmp_b.R
-import com.katheryn.a160420038_uts_anmp_b.view.adapter.CheckoutAdapter
 import com.katheryn.a160420038_uts_anmp_b.view.adapter.KostListAdapter
+import com.katheryn.a160420038_uts_anmp_b.view.adapter.myKostAdapter
 import com.katheryn.a160420038_uts_anmp_b.viewmodel.CheckoutViewModel
-import kotlinx.android.synthetic.main.fragment_favorite.*
-import kotlinx.android.synthetic.main.fragment_kost_list.*
 import kotlinx.android.synthetic.main.fragment_my_kost.*
+import kotlinx.android.synthetic.main.kost_list_item.*
 
 class MyKostFragment : Fragment() {
     private lateinit var viewModel: CheckoutViewModel
-    private val checkoutAdapter = CheckoutAdapter(arrayListOf())
+    private val myKostListAdapter = myKostAdapter(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        btnDetail.setText("Checkout")
     }
 
     override fun onCreateView(
@@ -39,15 +38,16 @@ class MyKostFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Global.fragment = "CheckoutFragment"
+
         viewModel = ViewModelProvider(this).get(CheckoutViewModel::class.java)
         viewModel.refresh()
 
         val recView = view.findViewById<RecyclerView>(R.id.rvMyKost)
         recView.layoutManager = LinearLayoutManager(context)
-        recView.adapter = checkoutAdapter
+        recView.adapter = myKostListAdapter
 
         val refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayoutMyKost)
-        refreshLayoutMyKost.setOnRefreshListener {
+        refreshLayout.setOnRefreshListener {
             refreshLayout.visibility = View.GONE
             txtErrorMyKost.visibility = View.GONE
             progressBarMyKost.visibility = View.VISIBLE
@@ -58,8 +58,8 @@ class MyKostFragment : Fragment() {
     }
 
     fun observeViewModel(){
-        viewModel.checkoutLD.observe(viewLifecycleOwner, Observer {
-            checkoutAdapter.updateCheckoutList(it)
+        viewModel.myKostLD.observe(viewLifecycleOwner, Observer {
+            myKostListAdapter.updateMyKostList(it)
         })
 
         viewModel.checkoutLoadErrorLD.observe(viewLifecycleOwner, Observer {

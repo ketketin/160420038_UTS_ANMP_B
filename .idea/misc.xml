@@ -15,14 +15,17 @@
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.184" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.184" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
-        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/drawable/rounded_dialog.xml" value="0.1065" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/activity_login.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/comment_list_item.xml" value="0.22" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/favorite_item.xml" value="0.17346014492753623" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_check_out_kost.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_detail_checkout.xml" value="0.22" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_favorite.xml" value="0.1" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_description.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_detail.xml" value="0.12" />
-        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_facilities.xml" value="0.2875" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_facilities.xml" value="0.22" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_list.xml" value="0.1" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_kost_photos.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_login.xml" value="0.22" />
@@ -31,7 +34,8 @@
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/fragment_settings.xml" value="0.22" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/kost_list_item.xml" value="0.22" />
         <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/layout/mykost_item.xml" value="0.17447916666666666" />
-        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/menu/menu_bottom.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/menu/menu_bottom.xml" value="0.1" />
+        <entry key="..\:/Users/Katheryn Natasia/Documents/Tugas Kuliah/SEM 6/Advanced Native Mobile Programming/Project UTS/160420038_UTS_ANMP_B/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1065" />
       </map>
     </option>
   </component>

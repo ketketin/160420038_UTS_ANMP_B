@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.katheryn.a160420038_uts_anmp_b.Global
 import com.katheryn.a160420038_uts_anmp_b.R
-import com.katheryn.a160420038_uts_anmp_b.view.adapter.CheckoutAdapter
 import com.katheryn.a160420038_uts_anmp_b.view.adapter.KostListAdapter
 import com.katheryn.a160420038_uts_anmp_b.viewmodel.BookmarkViewModel
 import kotlinx.android.synthetic.main.fragment_favorite.*
@@ -45,7 +44,7 @@ class FavoriteFragment : Fragment() {
         recView.adapter = kostListAdapter
 
         val refreshLayout = view.findViewById<SwipeRefreshLayout>(R.id.refreshLayoutFavorite)
-        refreshLayoutFavorite.setOnRefreshListener {
+        refreshLayout.setOnRefreshListener {
             refreshLayout.visibility = View.GONE
             txtError.visibility = View.GONE
             progressBarKostFavorit.visibility = View.VISIBLE
@@ -57,9 +56,9 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun observeViewModel(){
-        viewModel.bookmarLD.observe(viewLifecycleOwner){
+        viewModel.bookmarLD.observe(viewLifecycleOwner, Observer {
             kostListAdapter.updateKostList(it)
-        }
+        })
 
         viewModel.bookmarkLoadErrorLD.observe(viewLifecycleOwner, Observer {
             if(it == true){
