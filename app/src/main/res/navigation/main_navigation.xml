@@ -59,9 +59,6 @@
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
-            android:id="@+id/action_favoriteFragment_to_kostListFragment"
-            app:destination="@id/itemHome" />
-        <action
             android:id="@+id/actionDetailFragment"
             app:destination="@id/kostDetailFragment" />
     </fragment>
@@ -73,9 +70,6 @@
         <argument
             android:name="id"
             app:argType="string" />
-        <action
-            android:id="@+id/action_settingsFragment_to_kostListFragment"
-            app:destination="@id/itemHome" />
     </fragment>
     <fragment
         android:id="@+id/kostPhotosFragment"
@@ -94,9 +88,6 @@
         android:name="com.katheryn.a160420038_uts_anmp_b.view.fragment.MyKostFragment"
         android:label="fragment_my_kost"
         tools:layout="@layout/fragment_my_kost" >
-        <action
-            android:id="@+id/action_myKostFragment_to_kostListFragment"
-            app:destination="@id/itemHome" />
         <action
             android:id="@+id/actionDetailCheckout"
             app:destination="@id/detailCheckoutFragment" />
